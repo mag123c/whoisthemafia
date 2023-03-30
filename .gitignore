@@ -1,0 +1,25 @@
+### Spring ###
+target
+pom.properties
+.classpath
+MANIFEST.MF
+
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse,java
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java
+
+### Eclipse ###
+.metadata
+.settings/
+bin/
+
+# sbteclipse plugin
+.target
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,java
