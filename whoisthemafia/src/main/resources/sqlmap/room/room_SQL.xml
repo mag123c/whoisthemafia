@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="room">
+	<insert id="create">
+		insert into room (rname)
+		values (#{rname})
+	</insert>
+	
+	<insert id="create2">
+		insert into room (rname, pw)
+		values (#{rname}, #{pw})
+	</insert>
+	
+	<select id="getIdx" resultType="int">
+		select idx from room
+		order by create_date desc
+		limit 1		
+	</select>
+	
+	<select id="search" resultType="com.solo.pj1.room.dto.RoomDTO">
+		select rname, people, pw
+		  from room
+	</select>
+</mapper>
