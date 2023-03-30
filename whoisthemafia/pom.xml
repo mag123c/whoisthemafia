@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.solo</groupId>
 	<artifactId>pj1</artifactId>
-	<name>whoIsthemafia</name>
+	<name>whoisthemafia</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
