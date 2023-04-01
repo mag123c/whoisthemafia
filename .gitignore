@@ -1,4 +1,5 @@
 ### Spring ###
+log4j.xml
 target
 pom.properties
 .classpath
