@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 </head>
 <body>
-<form action="room" method="post" name="room">
+<form>
 	<!-- roomcreate start -->
 	<div class="room_con_create">
-	    <a href="#" id="x_btn">X</a>
+	    <a id="x_btn">X</a>
 	    <div class="room_con_create_id">
 	        <span>방제</span><br><input type="text" name="rname" id="roomname" placeholder="20자 이하 입력">
 	    </div>

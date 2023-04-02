@@ -8,7 +8,7 @@
 <body>
 <form>
     <div class="register_con">
-        <a href="#" id="x_btn">X</a>
+        <a id="x_btn">X</a>
         <div class="regi_con_id">
             <span>ID</span><br><input type="text" name="id" id="regi_id" placeholder="8~20 영문or숫자">
         </div>

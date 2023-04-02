@@ -6,10 +6,12 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- 웹소켓 -->
-	<bean id="lobbyHandler" class="com.solo.pj1.room.util.LobbyHandler" />        
+	<bean id="lobbyHandler" class="com.solo.pj1.room.util.LobbyHandler" />
+	<bean id="roomHandler" class="com.solo.pj1.room.util.RoomHandler" />        
 	
 	<websocket:handlers>
 		<websocket:mapping handler="lobbyHandler" path="/lobby-ws"/>
+		<websocket:mapping handler="roomHandler" path="/room-ws"/>		
 		<websocket:handshake-interceptors>
 			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
 		</websocket:handshake-interceptors>

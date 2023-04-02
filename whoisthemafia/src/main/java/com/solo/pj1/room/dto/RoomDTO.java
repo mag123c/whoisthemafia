@@ -5,7 +5,7 @@ import java.util.Date;
 public class RoomDTO {
 
 	private int idx, people;
-	private String rname, pw;
+	private String rname, pw, start_yn;
 	private Date create_date;
 	
 	public int getIdx() {
@@ -38,11 +38,16 @@ public class RoomDTO {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
-	
+	public String getStart_yn() {
+		return start_yn;
+	}
+	public void setStart_yn(String start_yn) {
+		this.start_yn = start_yn;
+	}
 	@Override
 	public String toString() {
-		return "RoomDTO [idx=" + idx + ", people=" + people + ", rname=" + rname + ", pw=" + pw + ", create_date="
-				+ create_date + "]";
+		return "RoomDTO [idx=" + idx + ", people=" + people + ", rname=" + rname + ", pw=" + pw + ", start_yn="
+				+ start_yn + ", create_date=" + create_date + "]";
 	}
-		
+	
 }

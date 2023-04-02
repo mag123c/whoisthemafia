@@ -52,6 +52,7 @@ a:visited {
 .main_con .room_con {
 	position : relative;
     display : flex;
+    flex-wrap : wrap;
 }
 
 .main_con .room_con .room {

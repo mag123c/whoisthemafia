@@ -27,21 +27,47 @@ createRoomBtn.addEventListener("click", function(){
 		return;
 	}
 	else {
-		roomModalCon.style.display = "none";
-		document.body.style.backgroundColor = "rgba(36, 41, 45, 1)";
-		let rname = roomname.value;
-		let pw = roompw.value;
-		let room = roomFormat.cloneNode(true);
-		let h1_name = document.createElement("h1");
-		let h1_people = document.createElement("h1");
-		h1_name.innerText = rname;
-		h1_people.innerText = "1 / 8";
-		room.children[0].append(h1_name);		
-		room.children[0].append(h1_people);
-		roomCon.append(room);
-		room.style.display = "block";		
-		roomname.value = "";
-		document.room.submit();
+		$.ajax({
+			url : '/room',
+			method : 'post',
+			data : {'rname' : roomname.value, 'pw' : roompw.value},
+			dataType : 'text',
+			success : function(idx){
+				sock.send("create/" + idx);
+				joinroom(idx);
+			}
+		})
 	}
 })
 /* create room end */
+
+/* join room start */
+//버튼 정보 -> 비동기처리
+document.addEventListener("DOMContentLoaded", function(){
+	setTimeout(function(){
+		const joinBtn = document.querySelectorAll(".joinbtn");
+		joinBtn.forEach(function(btn){
+			btn.addEventListener("click", function(e){
+				let roominfo = e.target.parentNode.children[0].children[0].textContent;
+				let last = roominfo.indexOf(")");
+				let idx = roominfo.substring(1, last);
+				joinroom(idx);
+			})
+		})
+	}, 1000);
+})
+
+function joinroom(idx){
+	$.ajax({
+		url : '/room/'+idx,
+		method : 'post',
+		data : {'idx' : idx},
+		success : function(data){
+			console.log(data);
+			location.href="/room/"+idx;
+		}
+	})
+}
+/* join room end */
+
+
