@@ -2,7 +2,7 @@
 
 ### 개발 관련 포스팅
 
-  기초설계 및 세팅 : https://mag1c.tistory.com/293
+    기초설계 및 세팅 : https://mag1c.tistory.com/293
 
 ### 개발 동기
 
