@@ -1,5 +1,11 @@
 # WebSocket 심화 학습을 위한 개인 ProJect
 
+### 개발 관련 포스팅
+
+(전체 : https://mag1c.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B0%9C%EC%9D%B8%28%EB%A7%88%ED%94%BC%EC%95%84%20-%20WebSocekt%EC%8B%AC%ED%99%94%29)
+
+기초설계 및 세팅 : https://mag1c.tistory.com/293
+
 ### 개발 동기
 
 학원 수강 당시 OTT 서비스 프로젝트 개발 중 WebSocket을 활용한 실시간 알림 및 1:N 채팅방 구현 경험에서 흥미를 느꼈음
