@@ -1,0 +1,130 @@
+:root {
+    --bg: #24292D;
+    --btn_bg: #e1555a;
+    --btn_hover_bg: #9c6b6c;
+    --main-text-color: #CCCCCC;
+    --sub-text-color: #FFCC00;
+    --room-bg: #f1e7bb;
+    --error-text-color: #F82F62;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+h1 {
+    font-size : 1.7vw;
+}
+
+a {
+	text-decoration: none;
+    cursor: pointer;	
+}
+
+a:visited {
+	color : var(--main-text-color);
+}
+
+/* header start */
+.header_con {
+    text-align : center;
+    color : var(--main-text-color);
+}
+
+.header_btn_con {
+    text-align: right;
+    margin-right : 5%;
+}
+
+.header_btn_con .roombtn {
+    width : 10vw;
+    height : 5vh;
+    background-color: var(--btn_bg);
+    font-size : 1vw;
+}
+
+.header_btn_con .roombtn:hover {
+    background-color: var(--btn_hover_bg);
+}
+/* header end */
+
+/* room start */
+.main_con .room_con {
+	position : relative;
+    display : flex;
+    flex-wrap : wrap;
+}
+
+.main_con .room_con .room {
+    padding : 1%;
+    margin : 3%;
+    width : 25%;
+    height : 20vh;
+    background-color: var(--room-bg);
+    border : solid 3px;
+    border-color: var(--sub-text-color);
+    border-radius: 50px;
+    text-align : center;
+    display : none;
+}
+
+.main_con .room_con .room .joinbtn {
+    width : 10vw;
+    height : 3vh;
+    background-color: var(--btn_bg);
+}
+
+.main_con .room_con .room .joinbtn:hover {
+    background-color: var(--btn_hover_bg);
+}
+/* room end */
+
+/* create con start */
+.room_con_create {
+    color : var(--main-text-color);
+    position : absolute;
+    display: none;
+    margin-top : 5vh;
+    padding : 1%;
+    width : 25%;
+    height : 45vh;    
+    background-color: #000;
+    margin-left : 35%;
+    margin-right : 35%;
+    z-index : 1000;
+}
+
+.room_con_create .room_con_create_id, .room_con_create_pw, .room_con_create_button {
+    margin : 7%;
+}
+
+.room_con_create span {
+    font-size : 2vw;
+}
+
+.room_con_create input {
+    width : 20vw;
+    height : 4vh;
+    font-size: 1vw;
+    color : #000;
+}
+
+.room_con_create .room_con_create_button {
+    text-align: center;
+}
+
+.room_con_create .room_con_create_button button {
+    width : 12.5vw;
+    height : 5vh;
+    background-color: var(--btn_bg);
+}
+
+.room_con_create .room_con_create_button button:hover {
+    background-color: var(--btn_hover_bg);
+}
+
+.room_con_create a {
+    margin-left : 95%;
+    font-size : 1vw;
+}
+/* create con end */

@@ -1,0 +1,148 @@
+:root {
+    --bg: #24292D;
+    --btn_bg: #e1555a;
+    --btn_hover_bg: #9c6b6c;
+    --main-text-color: #CCCCCC;
+    --sub-text-color: #FFCC00;
+    --error-text-color: #F82F62;
+}
+
+* {
+    color : var(--main-text-color);
+}
+
+body {
+    background-color: var(--bg);
+}
+
+a {
+	text-decoration: none;
+    cursor: pointer;	
+}
+
+a:visited {
+	color : var(--main-text-color);
+}
+
+p {
+	color : var(--error-text-color);
+}
+
+/*header start*/
+.header {
+    margin-top : 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_con1 {
+    display: flex;
+    text-align: center;
+}
+
+.header_con1 .mafia_img {
+    width : 12vw;
+    height : 12vh;
+    margin-right : 50px;
+}
+
+.header h1 {
+    color: var(--main-text-color);
+    font-size: 3vw;
+}
+
+.header_con1 .mafia {
+    color : var(--error-text-color);
+}
+/*header end*/
+
+/*login start*/
+.login_con {
+    position: relative;
+    margin-top : 5vh;
+    padding : 1%;
+    width : 30%;
+    height : 50vh;    
+    background-color: #000;
+    margin-left : 35%;
+    margin-right : 35%;
+}
+
+.login_con .login_con_id, .login_con_pw, .login_con_button {
+    margin : 7%;
+}
+
+.login_con span {
+    font-size : 3vw;
+}
+
+.login_con input {
+    width : 25vw;
+    height : 5vh;
+    font-size: 2vw;
+    color : #000;
+}
+
+.login_con .login_con_button button {
+    width : 12.5vw;
+    height : 5vh;
+    background-color: var(--btn_bg);
+}
+
+.login_con .login_con_button button:hover {
+    background-color: var(--btn_hover_bg);
+}
+
+.login_con .login_msg {
+	text-align : center;
+}
+/*login end*/
+
+/*register start*/
+.register_con {
+    top : -60vh;
+    display: none;
+    position : relative;
+    margin-top : 5vh;
+    padding : 1%;
+    width : 30%;
+    height : 70vh;    
+    background-color: #000;
+    margin-left : 35%;
+    margin-right : 35%;
+}
+
+.register_con .regi_con_id, .regi_con_pw, .regi_con_nickname, .regi_con_button {
+	margin-left : 7%;
+	margin-top : 5%;
+}
+
+.register_con span {
+    font-size : 3vw;
+}
+
+.register_con input {
+    width : 25vw;
+    height : 5vh;
+    font-size: 1.5vw;
+    color : #000;
+}
+
+.register_con .regi_con_button button {
+    margin-left : 6.25vw;
+    margin-top : 5%;
+    width : 12.5vw;
+    height : 5vh;
+    background-color: var(--btn_bg);
+}
+
+.register_con .regi_con_button button:hover {
+    background-color: var(--btn_hover_bg);
+}
+
+.register_con a {
+    margin-left : 95%;
+    font-size : 1vw;
+}
+/* register end */

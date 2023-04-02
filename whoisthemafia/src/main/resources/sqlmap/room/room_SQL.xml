@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="room">
+	<insert id="create">
+		insert into room (rname)
+		values (#{rname})
+	</insert>
+	
+	<insert id="create2">
+		insert into room (rname, pw)
+		values (#{rname}, #{pw})
+	</insert>
+	
+	<select id="get_idx" resultType="int">
+		select idx from room
+		order by create_date desc
+		limit 1		
+	</select>
+	
+	<select id="search" resultType="com.solo.pj1.room.dto.RoomDTO">
+		select * from room
+		order by create_date
+	</select>
+	
+	<select id="get_roominfo" resultType="com.solo.pj1.room.dto.RoomDTO">
+		select * from room
+		where idx = #{idx}
+	</select>
+	
+	<select id="howmanyuser" resultType="int">
+		select people
+		  from room
+		 where idx = #{idx}
+	</select>
+	
+	<delete id="remove_room">
+		delete from room
+		 where idx = #{idx}
+	</delete>	
+	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ게임방 입장 후ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<select id="get_gameroom" resultType="com.solo.pj1.room.dto.GameRoomDTO">
+		select * from gameroom
+		where room_idx = #{idx}
+	</select>
+	
+	<select id="get_roomchat" resultType="com.solo.pj1.room.dto.ChatDTO">
+		select * from room_chat
+		where room_idx = #{idx}
+	</select>
+	
+	<update id="joinuser">
+		update room
+		   set people=people+1
+		 where idx = #{idx}
+	</update>
+	
+	<update id="remove_user">
+		update room
+		   set people = people-1
+		 where idx = #{idx}
+	</update>
+	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+</mapper>
