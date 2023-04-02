@@ -1,17 +1,24 @@
-# develop
+# WebSocket 심화 학습을 위한 개인 ProJect
 
-### Ver 1.0(03.28)
+### 개발 관련 포스팅
 
- - 로그인, 회원가입 View 및 기능
- - Room View 및 DB Create
+ - 기초설계 및 세팅 : <https://mag1c.tistory.com/293>
 
-### Ver 1.1(03.30)
+### 개발 동기
 
- - Lobby <-> WS 연결
+ - 학원 수강 당시 OTT 서비스 프로젝트 개발 중 WebSocket을 활용한 실시간 알림 및 1:N 채팅방 구현 경험에서 흥미를 느꼈음
+ - 관련 링크 : <https://mag1c.tistory.com/222> <https://mag1c.tistory.com/223> <https://mag1c.tistory.com/233>
 
-### Ver 1.2(04.02)
+### 개발 목적
 
- - Lobby에서 GameRoom 생성 및 입장 시 ws를 통한 db 및 view update처리 완료.
- - GameRoom 퇴장 시 User=0 일 때, Room delete db / view
- - 예정사항 : GameRoom 작업 시작할 것
- 
+ - 웹 소켓을 더 능동적이고 심도있게 다루기 위함
+
+### 개발 환경
+
+    언어 및 프레임워크 : Java 8 / Spring framework 5.2.18.RELEASE - Mybatis
+    프론트 엔드 : HTML5 / CSS3 / JavaScript / J-Query / JSP
+    서버 및 DB : Apache-Tomcate 9.0 / MySQL 8.0.28
+
+### GIT 전략
+
+ - develop branch를 통한 개발 업로드 및 main의 기능 완료 version별 merge
