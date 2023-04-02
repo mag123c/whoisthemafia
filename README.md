@@ -1,6 +1,8 @@
 # WebSocket 심화 학습을 위한 개인 ProJect
+<details>
+<summary><h3>개발 관련 정보 보기</h3></summary>
 
-### 개발 관련 포스팅
+ ### 개발 관련 포스팅
 
  - 기초설계 및 세팅 : <https://mag1c.tistory.com/293>
 
@@ -22,3 +24,15 @@
 ### GIT 전략
 
  - develop branch를 통한 개발 업로드 및 main의 기능 완료 version별 merge
+</details>
+
+<hr>
+
+<details>
+<summary><h3>Ver1.0</h3></summary>
+
+### Ver1.0 (04.02 merge)
+ - 로그인, 회원가입 기능
+ - ws를 통해 게임방 입장, 퇴장 시 DB 및 Lobby(View)에서 인원 수 변동
+ 
+</details>
