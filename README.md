@@ -25,9 +25,7 @@
 
  - develop branch를 통한 개발 업로드 및 main의 기능 완료 version별 merge
 </details>
-
 <hr>
-
 <details>
 <summary><h3>Ver1.0</h3></summary>
 
