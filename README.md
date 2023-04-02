@@ -24,4 +24,4 @@
 
 ### GIT 전략
 
-  develop branch를 통한 개발 업로드 및 main의 기능 완료 version별 merge
+    develop branch를 통한 개발 업로드 및 main의 기능 완료 version별 merge
