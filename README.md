@@ -2,8 +2,6 @@
 
 ### 개발 관련 포스팅
 
-(전체 : https://mag1c.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B0%9C%EC%9D%B8%28%EB%A7%88%ED%94%BC%EC%95%84%20-%20WebSocekt%EC%8B%AC%ED%99%94%29)
-
 기초설계 및 세팅 : https://mag1c.tistory.com/293
 
 ### 개발 동기
