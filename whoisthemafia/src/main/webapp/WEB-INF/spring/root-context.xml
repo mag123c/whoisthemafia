@@ -7,7 +7,7 @@
 	<!-- for mysql -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://3.39.204.82:56732/mafia?serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="url" value="jdbc:mysql://15.165.187.245:56213/mafia?serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username" value="diehreo" />
 		<property name="password" value="021548" />
 	</bean>
