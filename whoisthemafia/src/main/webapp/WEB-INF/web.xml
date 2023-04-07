@@ -50,4 +50,16 @@
 	    <filter-name>encodingFilter</filter-name>
 	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- 에러페이지 view 2023.04.07 -->
+	<!-- <error-page>
+  		<error-code>404</error-code>
+  		<location>/error/404.jsp</location>
+	</error-page>
+	
+	<error-page>
+	  	<error-code>500</error-code>
+	  	<location>/error/500.jsp</location>
+	</error-page> -->
+	<!-- 에러페이지 view 2023.04.07 -->
 </web-app>

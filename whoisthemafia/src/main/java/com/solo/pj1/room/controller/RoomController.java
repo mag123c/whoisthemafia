@@ -27,7 +27,7 @@ public class RoomController {
 	
 	@RequestMapping(value="/room", method=RequestMethod.POST)
 	@ResponseBody
-	public int createRoom(RoomDTO dto, String rname) {
+	public int createRoom(RoomDTO dto) {
 		roomService.createRoom(dto);
 		return roomService.getIdx();
 	}

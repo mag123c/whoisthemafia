@@ -51,7 +51,13 @@ document.addEventListener("DOMContentLoaded", function(){
 				let roominfo = e.target.parentNode.children[0].children[0].textContent;
 				let last = roominfo.indexOf(")");
 				let idx = roominfo.substring(1, last);
-				joinroom(idx);
+				let people = btn.previousElementSibling.children[1].innerText.split(" / ")[0];
+				
+				if(people < 8) joinroom(idx);
+				else {
+					alert("풀방임");
+					return;
+				}
 			})
 		})
 	}, 1000);
@@ -63,7 +69,6 @@ function joinroom(idx){
 		method : 'post',
 		data : {'idx' : idx},
 		success : function(data){
-			console.log(data);
 			location.href="/room/"+idx;
 		}
 	})

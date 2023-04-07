@@ -66,7 +66,7 @@ public class LobbyHandler extends TextWebSocketHandler{
 			//3. 방에서 인원 빠졌을 때 db-- 처리
 			else if(message.getPayload().contains("--/")) {
 				int idx = Integer.parseInt(message.getPayload().split("/")[1]);
-				//3-1. 방 삭제의 경우 view update
+				//3-1. 방 삭제의 경우 view update (SQL : true delete / false update)
 				if(roomService.removeUser(idx)) {
 	                single.sendMessage(new TextMessage("deleteroom/"+idx));
 				}
