@@ -8,4 +8,6 @@ public interface UserService {
 
 	int login(UserDTO dto);
 
+	UserDTO getuserinfo(String id);
+
 }

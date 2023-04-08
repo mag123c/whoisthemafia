@@ -34,10 +34,14 @@ public class UserDAO {
 		//0 : 로그인성공, -1 : 실패
 		if((Integer)(ss.selectOne("user.idcheck", dto)) == 1) {			
 			if(bcpe.matches(dto.getPw(), (String)ss.selectOne("user.getpw", dto))) {
-				return 0;
+				return ss.selectOne("user.getidx", dto);
 			}
 			else return -1;
 		}
 		else return -1;
+	}
+
+	public UserDTO getuserinfo(String id) {
+		return ss.selectOne("user.getinfo", id);
 	}
 }

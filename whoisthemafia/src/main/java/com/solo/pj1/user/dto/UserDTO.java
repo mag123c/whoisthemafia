@@ -5,7 +5,7 @@ import java.util.Date;
 public class UserDTO {
 
 	private int idx;
-	private String id, nickname, pw;
+	private String id, nickname, pw, img;
 	private Date create_date;	
 	
 	public int getIdx() {
@@ -47,10 +47,20 @@ public class UserDTO {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
+	
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
 
 	@Override
 	public String toString() {
-		return "UserDTO [idx=" + idx + ", id=" + id + ", pw=" + pw + ", create_date=" + create_date + "]";
+		return "UserDTO [idx=" + idx + ", id=" + id + ", nickname=" + nickname + ", pw=" + pw + ", img=" + img
+				+ ", create_date=" + create_date + "]";
 	}
+	
 		
 }

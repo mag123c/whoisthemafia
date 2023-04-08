@@ -7,6 +7,7 @@ public class GameRoomDTO {
 	private int room_idx, user_idx;
 	private String role_idx, dead_yn;
 	private Date dead_time;
+	
 	public int getRoom_idx() {
 		return room_idx;
 	}

@@ -1,6 +1,7 @@
 package com.solo.pj1.room.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,6 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public boolean removeUser(int idx) {
 		return roomDAO.removeUser(idx);
-	}	
+	}
 	
 }

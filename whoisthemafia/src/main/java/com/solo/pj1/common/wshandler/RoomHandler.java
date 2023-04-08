@@ -10,8 +10,9 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.solo.pj1.room.service.RoomService;
+import com.solo.pj1.user.dto.UserDTO;
+import com.solo.pj1.user.service.UserService;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,9 @@ public class RoomHandler extends TextWebSocketHandler{
 
 	@Autowired
 	RoomService roomService;
+	
+	@Autowired
+	UserService userService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(WebSocketHandler.class);
 	private static List<WebSocketSession> sessions = new ArrayList<WebSocketSession>();
@@ -48,6 +52,17 @@ public class RoomHandler extends TextWebSocketHandler{
 				roomService.getRoomChat(idx);
 				//1-2. 대기실에 정보 전달(유저숫자 ++ --체크만 하면됨)
 				LobbyHandler.sendMsg("update/" + idx + "/+");
+				
+				//1.3. gameroom view
+				UserDTO userDTO = new UserDTO();
+				String id = message.getPayload().split("/")[2];
+				userDTO = userService.getuserinfo(id);
+				String nickname = userDTO.getNickname();
+				String img = userDTO.getImg();
+				if(img==null) {
+					single.sendMessage(new TextMessage(nickname+"/"+"null"));
+				}
+				else single.sendMessage(new TextMessage(nickname+"/"+img));
 			}
 			//2. 퇴장 (퇴장 시 gameRoom에서 정보 지우기 - 상세view구현 후 나중에)
 			else if(message.getPayload().contains("update")) {

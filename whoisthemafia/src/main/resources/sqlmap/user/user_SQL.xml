@@ -7,17 +7,32 @@
 	</insert>
 	
 	<select id="idcheck" resultType="int">
-		select count(id) from user
-		where id=#{id}
+		select count(id)
+		  from user
+		 where id=#{id}
 	</select>
 	
 	<select id="nicknamecheck" resultType="int">
-		select count(nickname) from user
-		where nickname=#{nickname}
+		select count(nickname)
+		  from user
+		 where nickname=#{nickname}
 	</select>
 	
 	<select id="getpw" resultType="String">
-		select pw from user
+		select pw
+		 from user
 		where id=#{id}
+	</select>
+	
+	<select id="getidx" resultType="int">
+		select idx
+		  from user
+		 where id=#{id}
+	</select>
+	
+	<select id="getinfo" resultType="com.solo.pj1.user.dto.UserDTO">
+		select nickname, img
+		  from user
+		 where id=#{id} 
 	</select>
 </mapper>

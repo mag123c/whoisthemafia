@@ -22,4 +22,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.login(dto);
 	}
 
+	@Override
+	public UserDTO getuserinfo(String id) {
+		return userDAO.getuserinfo(id);
+	}
+
 }

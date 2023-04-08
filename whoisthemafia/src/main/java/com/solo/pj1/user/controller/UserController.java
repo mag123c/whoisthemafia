@@ -41,12 +41,16 @@ public class UserController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView login(ModelAndView mv, HttpSession ss, UserDTO dto) {
-		if(dto.getId() == null || dto.getPw() == null || userService.login(dto) != 0) {
+		int idx = userService.login(dto);
+		if(dto.getId() == null || dto.getPw() == null || idx == -1) {
 			mv.addObject("message", "login_error");
-			mv.setViewName("home");			
-		}		
-		else if(userService.login(dto) == 0) {
+			mv.addObject("id", dto.getId());
+			mv.setViewName("home");
+			return mv;
+		}	
+		else {
 			ss.setAttribute("id", dto.getId());
+			ss.setAttribute("user_idx", idx);
 			ss.setMaxInactiveInterval(60*180);
 			mv.setViewName("redirect:/lobby");
 		}

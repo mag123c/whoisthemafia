@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class RoomDTO {
 
-	private int idx, people;
+	private int idx, people, user_idx;
 	private String rname, pw, start_yn;
 	private Date create_date;
 	
@@ -44,10 +44,16 @@ public class RoomDTO {
 	public void setStart_yn(String start_yn) {
 		this.start_yn = start_yn;
 	}
+	public int getUser_idx() {
+		return user_idx;
+	}
+	public void setUser_idx(int user_idx) {
+		this.user_idx = user_idx;
+	}
 	@Override
 	public String toString() {
-		return "RoomDTO [idx=" + idx + ", people=" + people + ", rname=" + rname + ", pw=" + pw + ", start_yn="
-				+ start_yn + ", create_date=" + create_date + "]";
+		return "RoomDTO [idx=" + idx + ", people=" + people + ", user_idx=" + user_idx + ", rname=" + rname + ", pw="
+				+ pw + ", start_yn=" + start_yn + ", create_date=" + create_date + "]";
 	}
 	
 }

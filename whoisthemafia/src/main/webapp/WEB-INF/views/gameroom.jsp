@@ -9,47 +9,48 @@
 </head>
 <body>
 <!-- hidden info -->
-<input type="hidden" id="roomIdx" value="${idx}">
+<input type="hidden" id="userIdx" value="${user_idx}">
+<input type="hidden" id="roomIdx" value="${room_idx}">
 <input type="hidden" value="${sessionScope.id}" id="sessionid">
 <!-- hidden info end -->
 	
 <div class="main_Con">
 	<!-- left(User) -->
 	<div class="left_Con">
-		<div class="user" id="user_#1">
+		<div class="user" id="1">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+				<p class="user_nickname"></p>
 			</div>						
 		</div>
 		
-		<div class="user" id="user_#2">
+		<div class="user" id="2">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
-			</div>
+				<p class="user_nickname"></p>
+			</div>						
 		</div>
 		
-		<div class="user" id="user_#3">
+		<div class="user" id="3">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
-			</div>
+				<p class="user_nickname"></p>
+			</div>						
 		</div>
 		
-		<div class="user" id="user_#4">
+		<div class="user" id="4">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
-			</div>
+				<p class="user_nickname"></p>
+			</div>						
 		</div>
 	</div>
 	<!-- left(User) end -->
@@ -71,40 +72,40 @@
 	<!-- mid(chat) end -->
 	<!-- right(User) -->
 	<div class="right_Con">
-		<div class="user" id="user_#5">
+		<div class="user" id="5">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
-			</div>
+				<p class="user_nickname"></p>
+			</div>						
 		</div>
 		
-		<div class="user" id="user_#6">
+		<div class="user" id="6">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
-			</div>
+				<p class="user_nickname"></p>
+			</div>						
 		</div>
 		
-		<div class="user" id="user_#7">
+		<div class="user" id="7">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
-			</div>
+				<p class="user_nickname"></p>
+			</div>						
 		</div>
 		
-		<div class="user" id="user_#8">
+		<div class="user" id="8">
 			<div class="user_imgCon">
-				<img src="">
+				<img class="user_img">
 			</div>			
 			<div class="user_idCon">
-				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
-			</div>
+				<p class="user_nickname"></p>
+			</div>						
 		</div>
 	</div>
 	<!-- right(User) end -->
