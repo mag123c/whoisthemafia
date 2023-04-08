@@ -39,7 +39,9 @@
 <summary><h3>Ver1.1 ( 2023. 04. 08 )</h3></summary>
 
     Lobby 검수 완료
-    gameroom 1
+    gameroom 1차 view 완료
+    
+    미흡사항 : room 입.퇴장 시 DB update 및 ws->view update
  
 </details>
 
