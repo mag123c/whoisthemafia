@@ -21,11 +21,14 @@
     프론트 엔드 : HTML5 / CSS3 / JavaScript / J-Query / JSP
     서버 및 DB : Apache-Tomcate 9.0 / MySQL 8.0.28
 
+ ### 개발 예상 기간
+ 
+     2023.04 ~ 2023.05.12
 
 </details>
 <hr>
 <details>
-<summary><h3>Ver1.0 ( 04. 02 )</h3></summary>
+<summary><h3>Ver1.0 ( 2023. 04. 02 )</h3></summary>
 
     로그인, 회원가입 기능
     ws를 통해 게임방 입장, 퇴장 시 DB 및 Lobby(View)에서 인원 수 변동
@@ -33,7 +36,7 @@
 </details>
 
 <details>
-<summary><h3>Ver1.1 ( 04. 08 )</h3></summary>
+<summary><h3>Ver1.1 ( 2023. 04. 08 )</h3></summary>
 
     Lobby 검수 완료
     gameroom 1
