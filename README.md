@@ -21,9 +21,7 @@
     프론트 엔드 : HTML5 / CSS3 / JavaScript / J-Query / JSP
     서버 및 DB : Apache-Tomcate 9.0 / MySQL 8.0.28
 
-### GIT 전략
 
- - develop branch를 통한 개발 업로드 및 main의 기능 완료 version별 merge
 </details>
 <hr>
 <details>
