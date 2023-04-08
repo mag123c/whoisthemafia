@@ -1,4 +1,4 @@
-package com.solo.pj1.room.util;
+package com.solo.pj1.common.wshandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

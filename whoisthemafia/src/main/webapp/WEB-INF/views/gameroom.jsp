@@ -8,61 +8,108 @@
 <link href="/resources/css/gameroom.css" rel="stylesheet"></link>   
 </head>
 <body>
+<!-- hidden info -->
+<input type="hidden" id="roomIdx" value="${idx}">
+<input type="hidden" value="${sessionScope.id}" id="sessionid">
+<!-- hidden info end -->
+	
+<div class="main_Con">
+	<!-- left(User) -->
+	<div class="left_Con">
+		<div class="user" id="user_#1">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>						
+		</div>
+		
+		<div class="user" id="user_#2">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>
+		</div>
+		
+		<div class="user" id="user_#3">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>
+		</div>
+		
+		<div class="user" id="user_#4">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>
+		</div>
+	</div>
+	<!-- left(User) end -->
+	<!-- mid(chat) -->
+	<div class="mid_Con">
+		<h1 class="rname">방제목 나중에 여기 나오게하기</h1>
+		<button class="ready_btn">Ready</button>
+		<button class="exit_btn">Exit</button>
+		<div class="chat">
+			<div class="chat_view">
+				<!-- 채팅영역 -->
+			</div>
+			<div class="chat_input">
+				<input type="text" placeholder="메세지 입력">
+				<button class="send_btn">Send</button>
+			</div>
+		</div>
+	</div>	
+	<!-- mid(chat) end -->
+	<!-- right(User) -->
+	<div class="right_Con">
+		<div class="user" id="user_#5">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>
+		</div>
+		
+		<div class="user" id="user_#6">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>
+		</div>
+		
+		<div class="user" id="user_#7">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>
+		</div>
+		
+		<div class="user" id="user_#8">
+			<div class="user_imgCon">
+				<img src="">
+			</div>			
+			<div class="user_idCon">
+				<p>존나긴아이디존나긴아이디존나긴아이디존나</p>
+			</div>
+		</div>
+	</div>
+	<!-- right(User) end -->
 
-<div class="container">
-  <div class="user-area">
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 1</div>
-    </div>
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 2</div>
-    </div>
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 3</div>
-    </div>
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 4</div>
-    </div>
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 5</div>
-    </div>
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 6</div>
-    </div>
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 7</div>
-    </div>
-    <div class="user">
-      <div class="image"></div>
-      <div class="id">User 8</div>
-    </div>
-  </div>
-  <div class="chat-area">
-    <div class="chat-box">
-      <div class="chat-log"></div>
-      <div class="chat-input">
-        <input type="text" placeholder="Type your message here">
-        <button class="btn">Send</button>
-      </div>
-    </div>
-    <div class="ready-btn">
-      <button class="btn">Ready</button>
-    </div>
-  </div>
-  <div class="exit-btn">
-    <button class="btn">Exit</button>
-  </div>
 </div>
-
-
-
 <script src="/resources/js/common/room_socket.js"></script>
 </body>
 </html>
