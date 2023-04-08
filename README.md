@@ -27,8 +27,18 @@
 <details>
 <summary><h3>Ver1.0</h3></summary>
 
-### Ver1.0 (04.02 merge)
+### Ver1.0 (04.02)
  - 로그인, 회원가입 기능
  - ws를 통해 게임방 입장, 퇴장 시 DB 및 Lobby(View)에서 인원 수 변동
  
 </details>
+
+<details>
+<summary><h3>Ver1.1</h3></summary>
+
+### Ver1.1 (04.08)
+ - Lobby 검수 완료
+ - gameroom 1
+ 
+</details>
+
