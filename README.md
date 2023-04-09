@@ -39,12 +39,15 @@
 </details>
 
 <details>
-<summary><h3>Ver1.1 ( 2023. 04. 08 )</h3></summary>
-
-    Lobby 검수 완료
-    gameroom 1차 view 완료
+<summary><h3>Ver1.1 ( 2023. 04. 08~09 )</h3></summary>
     
-    미흡사항 : room 입.퇴장 시 DB update 및 ws->view update
+    설정 추가
+    transaction - aspectjweaver - cglib  /  HiddenHttpMethodFilter
+    
+    코드 수정 ( Con - 로직 호출 / Service - 로직 작성 / DAO - JDBC Conn only )
+    서비스단 트랜잭션 단위로 Commit Rollback 구현
+    GameRoom 입.퇴장 시 Lobby update 완료
+    미흡사항 : GameRoom 입장 시 div 안에 값이 들어있는거 체크 어떻게 할것인가 / 기존 입장유저는 모든정보 다갖고옴
  
 </details>
 
