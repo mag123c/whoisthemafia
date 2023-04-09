@@ -9,7 +9,6 @@
 </head>
 <body>
 <!-- hidden info -->
-<input type="hidden" id="userIdx" value="${user_idx}">
 <input type="hidden" id="roomIdx" value="${room_idx}">
 <input type="hidden" value="${sessionScope.id}" id="sessionid">
 <!-- hidden info end -->
@@ -112,5 +111,6 @@
 
 </div>
 <script src="/resources/js/common/room_socket.js"></script>
+<script src="/resources/js/gameroom.js"></script>
 </body>
 </html>

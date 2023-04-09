@@ -4,7 +4,7 @@ import com.solo.pj1.user.dto.UserDTO;
 
 public interface UserService {
 
-	int newUser(UserDTO dto);
+	String register(UserDTO dto);
 
 	int login(UserDTO dto);
 

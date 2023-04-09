@@ -7,6 +7,7 @@ const roomCon = document.querySelector(".room_con");				//방 전체 컨테이�
 const roomFormat = document.querySelector(".room");					//방 형태 = cloneNode활용
 const roomname = document.querySelector("#roomname");				//방제목 input val
 const roompw = document.querySelector("#roompw");					//비번 input val
+const sessionid = document.querySelector("#sessionid")			//유저id
 
 /* modal */
 createModalBtn.addEventListener("click", function(){
@@ -26,11 +27,11 @@ createRoomBtn.addEventListener("click", function(){
 		alert("방 제목을 입력해주세요");
 		return;
 	}
-	else {
+	else {		
 		$.ajax({
 			url : '/room',
 			method : 'post',
-			data : {'rname' : roomname.value, 'pw' : roompw.value},
+			data : {'rname' : roomname.value, 'pw' : roompw.value, "rhost" : sessionid.value},
 			dataType : 'text',
 			success : function(idx){
 				sock.send("create/" + idx);
@@ -64,12 +65,14 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function joinroom(idx){
+	console.log(sessionid.value);
 	$.ajax({
-		url : '/room/'+idx,
+		url : '/rooms/'+idx,
 		method : 'post',
-		data : {'idx' : idx},
+		data : {"id" : sessionid.value, "idx" : idx},
+		dataType : 'text',
 		success : function(data){
-			location.href="/room/"+idx;
+			location.href="/rooms/"+idx;
 		}
 	})
 }

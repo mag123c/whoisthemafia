@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="roomchat">
+
+	<select id="getinfo" resultType="com.solo.pj1.room.dto.RoomChatDTO">
+		select * from room_chat
+		where room_idx = #{idx}
+	</select>
+
+</mapper>

@@ -5,7 +5,7 @@ import java.util.Date;
 public class GameRoomDTO {
 
 	private int room_idx, user_idx;
-	private String role_idx, dead_yn;
+	private String role_idx, dead_yn, nickname, img;
 	private Date dead_time;
 	
 	public int getRoom_idx() {
@@ -38,9 +38,22 @@ public class GameRoomDTO {
 	public void setDead_time(Date dead_time) {
 		this.dead_time = dead_time;
 	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	@Override
 	public String toString() {
 		return "GameRoomDTO [room_idx=" + room_idx + ", user_idx=" + user_idx + ", role_idx=" + role_idx + ", dead_yn="
-				+ dead_yn + ", dead_time=" + dead_time + "]";
+				+ dead_yn + ", nickname=" + nickname + ", img=" + img + ", dead_time=" + dead_time + "]";
 	}	
+	
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gameroom">
+
+	<select id="getinfo" resultType="com.solo.pj1.room.dto.GameRoomDTO">
+		select g.room_idx, g.user_idx, u.nickname, u.img 
+		  from gameroom g, user u
+		 where g.user_idx = u.idx
+		   and room_idx = #{idx}
+	</select>
+	
+	<insert id="c_j">
+		insert into gameroom (room_idx, user_idx, role_idx)
+		select #{room_idx}, #{user_idx}, "C" from dual
+		 where not exists(select user_idx from gameroom where user_idx=#{user_idx})		
+	</insert>
+	
+</mapper>

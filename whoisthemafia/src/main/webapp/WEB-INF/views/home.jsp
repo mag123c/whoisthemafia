@@ -22,7 +22,7 @@
     <!-- header end -->
 
     <!-- login start -->
-    <form action="/login" method="post">
+    <form action="/users/login" method="post">
 	    <div class="login_con">
 	        <div class="login_con_id">
 	            <span>ID</span><br><input type="text" name="id" id="login_id" value="${id}">

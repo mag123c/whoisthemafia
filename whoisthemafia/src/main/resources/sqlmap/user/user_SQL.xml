@@ -31,7 +31,7 @@
 	</select>
 	
 	<select id="getinfo" resultType="com.solo.pj1.user.dto.UserDTO">
-		select nickname, img
+		select idx, id, nickname, img
 		  from user
 		 where id=#{id} 
 	</select>

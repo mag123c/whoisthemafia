@@ -43,13 +43,12 @@ function connectWs(){
 		let room = $("[data-idx='"+idx+"']");
 		let h1_people = (room.find(".r_people")[0]);		
 		let count = h1_people.textContent.substring(0, h1_people.textContent.indexOf(" "));
-		
+		console.log(pm);
 		if(pm == "+") {
 			count++;
 		}
 		else {
 			count--;
-			sock.send("--/"+idx);
 		}
 		if(count==0) roomdel(idx);
 		h1_people.innerText = count + " / 8";

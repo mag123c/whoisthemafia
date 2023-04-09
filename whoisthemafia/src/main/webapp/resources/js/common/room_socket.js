@@ -30,8 +30,9 @@ function connectWs(){
 		ws.send("join/"+roomIdx.value+"/"+id.value);
 	};
 
-	ws.onmessage = function(message) {
+	ws.onmessage = function(message) {		
 		let data = message.data;
+		console.log(data);
 		let nickname = data.split("/")[0];
 		let img = data.split("/")[1];
 		if(img=="null"){
@@ -65,7 +66,10 @@ function idxclear(){
 function userintodiv(nickname, img){
 	let userdiv;
 	for(var i=0; i<userAll.length; i++){
-		userdiv = userAll[i];
+		userdiv = userAll[i];		
+		if(userdiv.querySelector('.user_nickname').textContent == nickname){
+			continue;
+		}
 		let div_img = userAll[i].querySelector('.user_img');			
 		if(div_img.src=="") {
 			break;

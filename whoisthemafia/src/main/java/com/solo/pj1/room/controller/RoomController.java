@@ -21,28 +21,36 @@ public class RoomController {
 	
 	@RequestMapping(value="/lobby", method=RequestMethod.GET)
 	public String lobby() {
+		//입장 시 0명인 방 제거 -> 임시(더좋은방법 생기면 바꿀듯)
+		roomService.delroom(0);
 		return "lobby";
 	}
 	
 	@RequestMapping(value="/room", method=RequestMethod.POST)
 	@ResponseBody
 	public int createRoom(HttpSession ss, RoomDTO dto) {
-		roomService.createRoom(dto);
-		return roomService.getIdx();
+		return roomService.createRoom(dto);		
 	}
 	
-	@RequestMapping(value="/room/{idx}", method=RequestMethod.GET)
+	@RequestMapping(value="/rooms/{idx}", method=RequestMethod.GET)
 	public ModelAndView viewRoom(HttpSession ss, @PathVariable int idx) {
 		ss.setAttribute("room_idx", idx);
-		ModelAndView mv = new ModelAndView("gameroom", "idx", idx);
+		ModelAndView mv = new ModelAndView("gameroom");
 		return mv;
 	}
 	
-	@RequestMapping(value="/room/{idx}", method=RequestMethod.POST)
+	@RequestMapping(value="/rooms/{idx}", method=RequestMethod.POST)
 	@ResponseBody
-	public boolean joinRoom(@PathVariable int idx) {
+	public void joinRoom(String id, @PathVariable int idx) {
 		//방 정보(유저 수) 변경
-		roomService.joinuser(idx);
-		return true;
-	}	
+		roomService.joinuser(id, idx);		
+	}
+	
+	@RequestMapping(value="/rooms/{idx}", method=RequestMethod.PUT)
+	@ResponseBody
+	public void removeUser(@PathVariable int idx) {
+		//방 정보(유저 수) 변경
+		roomService.removeUser(idx);
+	}
+		
 }

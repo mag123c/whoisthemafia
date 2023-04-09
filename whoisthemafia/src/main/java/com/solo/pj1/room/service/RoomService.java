@@ -2,15 +2,13 @@ package com.solo.pj1.room.service;
 
 import java.util.List;
 
-import com.solo.pj1.room.dto.ChatDTO;
+import com.solo.pj1.room.dto.RoomChatDTO;
 import com.solo.pj1.room.dto.GameRoomDTO;
 import com.solo.pj1.room.dto.RoomDTO;
 
 public interface RoomService {
 
-	void createRoom(RoomDTO dto);
-
-	int getIdx();
+	int createRoom(RoomDTO dto);
 
 	List<RoomDTO> searchRoom();
 
@@ -18,10 +16,11 @@ public interface RoomService {
 	
 	List<GameRoomDTO> getGameRoom(int idx);
 
-	List<ChatDTO> getRoomChat(int idx);
+	List<RoomChatDTO> getRoomChat(int idx);
+	
+	void joinuser(String id, int idx);
 
-	void joinuser(int idx);
+	void removeUser(int idx);
 
-	boolean removeUser(int idx);
-
+	void delroom(int idx);
 }

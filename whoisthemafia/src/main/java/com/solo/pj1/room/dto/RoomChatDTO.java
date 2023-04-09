@@ -2,7 +2,7 @@ package com.solo.pj1.room.dto;
 
 import java.util.Date;
 
-public class ChatDTO {
+public class RoomChatDTO {
 
 	private int room_idx, user_idx;
 	private String msg;

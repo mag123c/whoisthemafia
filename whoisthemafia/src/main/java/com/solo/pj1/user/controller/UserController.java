@@ -22,27 +22,16 @@ public class UserController {
 	@RequestMapping(value="/users", method=RequestMethod.POST)
 	@ResponseBody
 	public String register(UserDTO dto) {
-		if(dto.getId() == null || dto.getPw() == null || dto.getNickname() == null) {
-			return "error";
-		}
+		String result = userService.register(dto); 
+		if(result==null) return "error";
 		
-		String result = "";
-		switch(userService.newUser(dto)) {
-		case -1: result = "duplicateID";			
-			break;
-		case -2: result = "duplicateNickName";			
-			break;
-		case 0: result = "success";			
-			break;
-			default: result = "error";
-		}
-		return result;
+		else return result;
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/users/login", method=RequestMethod.POST)
 	public ModelAndView login(ModelAndView mv, HttpSession ss, UserDTO dto) {
 		int idx = userService.login(dto);
-		if(dto.getId() == null || dto.getPw() == null || idx == -1) {
+		if(idx==-1) {
 			mv.addObject("message", "login_error");
 			mv.addObject("id", dto.getId());
 			mv.setViewName("home");

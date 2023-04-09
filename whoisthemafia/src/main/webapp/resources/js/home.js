@@ -78,7 +78,7 @@ createBtn.addEventListener("click", function(){
 
 /* regExp ID(nickname), PW */
 function idnickExp(value) {
-	var regExp = /^[a-zA-Z0-9-_/,.][a-zA-Z0-9-_/,. ]*$/;
+	var regExp = /^(?=.*[a-zA-z])(?=.*[0-9]).{8,20}$/;
     
 	return regExp.test(value);
 }

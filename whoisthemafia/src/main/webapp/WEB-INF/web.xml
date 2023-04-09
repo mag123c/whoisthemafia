@@ -62,4 +62,16 @@
 	  	<location>/error/500.jsp</location>
 	</error-page> -->
 	<!-- 에러페이지 view 2023.04.07 -->
+	
+	<!-- Http Method Filter(put delete ....) 23.04.09 -->
+	<filter>
+		<filter-name>httpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>httpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- end -->
+		
 </web-app>
