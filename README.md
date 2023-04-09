@@ -27,6 +27,9 @@
 
 </details>
 <hr>
+
+## 작업 일자별로 Ver관리 및 검수 후 Version up (1.x -> 2.0 ...)
+
 <details>
 <summary><h3>Ver1.0 ( 2023. 04. 02 )</h3></summary>
 
