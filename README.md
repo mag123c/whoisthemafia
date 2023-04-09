@@ -27,6 +27,9 @@
 
 </details>
 <hr>
+
+## 작업 일자별로 Ver관리 및 검수 후 Version up (1.x -> 2.0 ...)
+
 <details>
 <summary><h3>Ver1.0 ( 2023. 04. 02 )</h3></summary>
 
@@ -39,7 +42,9 @@
 <summary><h3>Ver1.1 ( 2023. 04. 08 )</h3></summary>
 
     Lobby 검수 완료
-    gameroom 1
+    gameroom 1차 view 완료
+    
+    미흡사항 : room 입.퇴장 시 DB update 및 ws->view update
  
 </details>
 
