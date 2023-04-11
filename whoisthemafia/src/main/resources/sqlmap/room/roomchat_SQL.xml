@@ -3,8 +3,15 @@
 <mapper namespace="roomchat">
 
 	<select id="getinfo" resultType="com.solo.pj1.room.dto.RoomChatDTO">
-		select * from room_chat
-		where room_idx = #{idx}
+		select rc.room_idx, rc.user_idx, u.id as user_id, rc.msg
+		  from room_chat rc, user u
+		 where rc.user_idx = u.idx
+		   and rc.room_idx = #{idx} 
 	</select>
+	
+	<insert id="chatting">
+		insert into room_chat (room_idx, user_idx, msg)
+		values (#{room_idx}, #{user_idx}, #{msg})
+	</insert>
 
 </mapper>

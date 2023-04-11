@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function joinroom(idx){
-	console.log(sessionid.value);
 	$.ajax({
 		url : '/rooms/'+idx,
 		method : 'post',

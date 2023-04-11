@@ -15,7 +15,7 @@ public class RoomChatDAO {
 	SqlSession ss;
 	
 	public List<RoomChatDTO> getinfo(int idx) {
-		return ss.selectList("room.getinfo", idx);
+		return ss.selectList("roomchat.getinfo", idx);
 	}	
 	
 }

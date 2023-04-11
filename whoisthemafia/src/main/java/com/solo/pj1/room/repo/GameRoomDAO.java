@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.solo.pj1.room.dto.GameRoomDTO;
+import com.solo.pj1.room.dto.RoomChatDTO;
 
 @Repository
 public class GameRoomDAO {
@@ -21,6 +22,14 @@ public class GameRoomDAO {
 	
 	public List<GameRoomDTO> getGameRoom(int idx) {
 		return ss.selectList("gameroom.getinfo", idx);
+	}
+
+	public void userOut(GameRoomDTO grDTO) {
+		ss.delete("gameroom.userout", grDTO);		
+	}
+
+	public void chatting(RoomChatDTO dto) {
+		ss.insert("roomchat.chatting", dto);
 	}
 	
 }

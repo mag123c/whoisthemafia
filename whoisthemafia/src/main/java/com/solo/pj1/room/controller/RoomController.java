@@ -5,11 +5,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.solo.pj1.room.dto.RoomChatDTO;
 import com.solo.pj1.room.dto.RoomDTO;
 import com.solo.pj1.room.service.RoomService;
 
@@ -48,9 +51,16 @@ public class RoomController {
 	
 	@RequestMapping(value="/rooms/{idx}", method=RequestMethod.PUT)
 	@ResponseBody
-	public void removeUser(@PathVariable int idx) {
+	public void removeUser(@PathVariable int idx, @RequestBody String id) {
+		id = id.substring(id.indexOf("=")+1, id.indexOf("&"));
 		//방 정보(유저 수) 변경
-		roomService.removeUser(idx);
+		roomService.removeUser(id, idx);
+	}
+	
+	@RequestMapping(value="/rooms/{idx}/chat", method=RequestMethod.PUT, produces="application/text; charset=utf8")
+	@ResponseBody
+	public String chatting(@PathVariable int idx, @RequestBody RoomChatDTO dto) {
+		return roomService.chatting(dto);
 	}
 		
 }

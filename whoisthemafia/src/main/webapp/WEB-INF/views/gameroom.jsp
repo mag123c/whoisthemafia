@@ -63,7 +63,7 @@
 				<!-- 채팅영역 -->
 			</div>
 			<div class="chat_input">
-				<input type="text" placeholder="메세지 입력">
+				<input type="text" id="chatinput" spellcheck="false" placeholder="메세지 입력">
 				<button class="send_btn">Send</button>
 			</div>
 		</div>

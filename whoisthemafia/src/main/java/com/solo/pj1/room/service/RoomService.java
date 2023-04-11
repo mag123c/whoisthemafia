@@ -20,7 +20,9 @@ public interface RoomService {
 	
 	void joinuser(String id, int idx);
 
-	void removeUser(int idx);
+	void removeUser(String id, int idx);
 
 	void delroom(int idx);
+
+	String chatting(RoomChatDTO dto);
 }

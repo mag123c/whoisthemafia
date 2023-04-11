@@ -15,4 +15,10 @@
 		 where not exists(select user_idx from gameroom where user_idx=#{user_idx})		
 	</insert>
 	
+	<delete id="userout" parameterType="com.solo.pj1.room.dto.GameRoomDTO">
+		delete from gameroom
+		 where room_idx=#{room_idx}
+		   and user_idx=#{user_idx}
+	</delete>
+	
 </mapper>

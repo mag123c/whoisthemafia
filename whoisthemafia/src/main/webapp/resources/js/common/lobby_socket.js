@@ -18,6 +18,7 @@ function connectWs(){
 
 	ws.onmessage = function(message) {
 		let rdata = message.data;
+		console.log(rdata);
 		let idx = rdata.split("/")[1];
 		let msg = rdata.split("/")[0];
 		/* 1. update(인원 +-)*/

@@ -5,7 +5,7 @@ import java.util.Date;
 public class RoomChatDTO {
 
 	private int room_idx, user_idx;
-	private String msg;
+	private String user_id, msg;
 	private Date create_date;
 	public int getRoom_idx() {
 		return room_idx;
@@ -31,9 +31,16 @@ public class RoomChatDTO {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 	@Override
 	public String toString() {
-		return "ChatDTO [room_idx=" + room_idx + ", user_idx=" + user_idx + ", msg=" + msg + ", create_date="
-				+ create_date + "]";
+		return "RoomChatDTO [room_idx=" + room_idx + ", user_idx=" + user_idx + ", user_id=" + user_id + ", msg=" + msg
+				+ ", create_date=" + create_date + "]";
 	}	
+	
 }

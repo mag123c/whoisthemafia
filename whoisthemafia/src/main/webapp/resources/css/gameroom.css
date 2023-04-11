@@ -91,7 +91,8 @@ body{
 	height : 80%;
 }
 
-.mid_Con .chat .chat_view{	
+.mid_Con .chat .chat_view{
+	color : var(--main-text-color);	
 	height : 65%;
 	width : 90%;
 	margin-left : 5%;
@@ -100,6 +101,12 @@ body{
 	border : solid 2px #FFF;
 	border-radius : 10%;
 	overflow : auto;
+}
+
+.mid_Con .chat .chat_view span{
+	display : block;
+	color : var(--sub-text-color);
+	font-weight : bold;
 }
 
 .mid_Con .chat .chat_input{
@@ -115,8 +122,10 @@ body{
 	height : 50%;
 	overflow : auto;
 	background-color : var(--bg);
+	color : var(--main-text-color);
 	border : solid 2px #FFF;
 	border-radius : 5%;
+	font-size : 1.2rem;
 }
 
 .mid_Con .chat .send_btn{

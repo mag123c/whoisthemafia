@@ -1,7 +1,9 @@
 const hsid = document.querySelector('#sessionid');		//세션id
 const roomIdx = document.querySelector("#roomIdx");		//방 idx
 const id = document.querySelector("#sessionid");		//세션 id
-const userAll = document.querySelectorAll(".user")		//user div 전체
+const userAll = document.querySelectorAll(".user");		//user div 전체
+const mainCon = document.querySelector(".main_Con");	//mainCon
+const chatview = document.querySelector(".chat_view");
 var sock = null;
 var idx = 0;
 var imgArr =
@@ -30,19 +32,27 @@ function connectWs(){
 		ws.send("join/"+roomIdx.value+"/"+id.value);
 	};
 
-	ws.onmessage = function(message) {		
+	ws.onmessage = function(message) {
 		let data = message.data;
 		console.log(data);
-		let nickname = data.split("/")[0];
-		let img = data.split("/")[1];
-		if(img=="null"){
-			img = getranimg();
-			idx++;
-			idxclear();
+		/* user out -> view update func */
+		if(data.includes("userout")){
+			userout(data.split("/")[1]);
+			return;
 		}
-		
-		userintodiv(nickname, img);
-		
+		/* get user-chatting func */
+		else if(data.includes("userMSG")){
+			userMSG(data.split("/")[1]);
+			return;
+		}
+		else if(data.includes("joinMSG")){
+			userMSG(data.split("/")[1]);
+		}
+		else {
+			let nickname = data.split("/")[0];
+			let img = data.split("/")[1];
+			userintodiv(nickname, img);
+		}		
 	};
 
 	ws.onclose = function() {
@@ -51,16 +61,6 @@ function connectWs(){
 
 };
 /* SockJS end */
-
-/* randomimg func */
-function getranimg(){
-	return imgArr[idx];
-}
-
-function idxclear(){
-	if(idx==8) idx=0;
-}
-/* randomimg func end */
 
 /* div -> user put */
 function userintodiv(nickname, img){
@@ -74,8 +74,38 @@ function userintodiv(nickname, img){
 		if(div_img.src=="") {
 			break;
 		}
+	}
+	if(img=="null"){
+		userdiv.querySelector('.user_img').src = imgArr[(userdiv.id)-1];
+	}
+	else {
+		userdiv.querySelector('.user_img').src = img;
 	}	
-	userdiv.querySelector('.user_img').src = img;
 	userdiv.querySelector('.user_nickname').textContent = nickname;	
 }
 /* div -> user put end */
+
+/* userout -> view update func */
+function userout(who){
+	for(var i=0; i<userAll.length; i++){
+		userdiv = userAll[i];		
+		if(userdiv.querySelector('.user_nickname').textContent == who){
+			userdiv.querySelector('.user_img').removeAttribute('src');
+			userdiv.querySelector('.user_nickname').textContent = "";
+			return;
+		}	
+	}
+}	
+/* userout -> view update func end */
+
+/* userchat -> view update func */
+function userMSG(MSG){
+	let chatdiv = document.createElement('div');	
+	let span = document.createElement('span');
+	span.textContent = MSG.split(" : ")[0];
+	chatdiv.className = 'chating_div';
+	chatdiv.append(span);
+	chatdiv.append(MSG.split(" : ")[1]);	
+	chatview.append(chatdiv);
+}
+/* userchat -> view update func end */
