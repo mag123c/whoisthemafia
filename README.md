@@ -50,4 +50,19 @@
     미흡사항 : GameRoom 입장 시 div 안에 값이 들어있는거 체크 어떻게 할것인가 / 기존 입장유저는 모든정보 다갖고옴
  
 </details>
+ 
+<details>
+ 
+<summary><h3>Ver1.2 ( 2023. 04. 11 )</h3></summary>
+
+    설정 추가
+    servlet async - true
+    
+    게임방 입장 시 상황 모두 완료. 채팅 구현 완료.
+    -> ready 상황부터 제작하기
+
+</details>
+
+<hr>
+
 
