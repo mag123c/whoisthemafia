@@ -17,7 +17,10 @@ import com.solo.pj1.user.service.UserService;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +38,22 @@ public class RoomHandler extends TextWebSocketHandler{
 	private static List<WebSocketSession> sessions = Collections.synchronizedList(new ArrayList<>());
     private static List<Integer> idxList = new ArrayList<Integer>();
 //    private static Queue<Integer> remainDiv = new LinkedList<>(Arrays.asList(1,2,3,4,5,6,7,8));
-//    private static Map<String,Integer> isinDiv = Collections.synchronizedMap(new HashMap<>());    
+//    private static Map<String,Integer> isinDiv = Collections.synchronizedMap(new HashMap<>());
+    @SuppressWarnings("serial")
+	private static Map<Integer, Integer> readyStatus = new HashMap<Integer, Integer>() {
+    	{
+    		put(1, 0);
+    		put(2, 0);
+    		put(3, 0);
+    		put(4, 0);
+    		put(5, 0);
+    		put(6, 0);
+    		put(7, 0);
+    		put(8, 0);
+    	}
+    };
+    private static int readySum=0;
+    
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		logger.info("Socket 연결");		
@@ -47,10 +65,22 @@ public class RoomHandler extends TextWebSocketHandler{
 	
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+		/* 채팅 쳤을 때, 채팅 메서드로 이동 */
 		if(message.getPayload().contains("userMSG")) {
 			chatMSG(message.getPayload(), session);
 			return;
 		}
+		/* ready user 수 체크해서 게임 start */
+		if(message.getPayload().contains("readyStatus")){
+			ready(message);
+			return;
+		}
+		
+		if(message.getPayload().contains("start")) {
+			start();
+			return;
+		}
+
 		
 		int idx = Integer.parseInt(message.getPayload().split("/")[1]);
 		String id = message.getPayload().split("/")[2];
@@ -120,12 +150,12 @@ public class RoomHandler extends TextWebSocketHandler{
         idxList.remove((Integer) idx);        
         LobbyHandler.sendMsg("update/" + idx + "/-");
         
-//		//방에 한명이라도 사용자가 있을 경우 room 내부소켓 정보 갱신
-//		if(sessions.size() >= 1) {
-//			for(WebSocketSession single : sessions) {
-//				single.sendMessage(new TextMessage("userout/"+nickname));
-//			}
-//		}
+		//방에 한명이라도 사용자가 있을 경우 room 내부소켓 정보 갱신
+		if(sessions.size() >= 1) {
+			for(WebSocketSession single : sessions) {
+				single.sendMessage(new TextMessage("userout/"+nickname));
+			}
+		}
 	}
 	
 	/* userMSG -> view */
@@ -133,5 +163,30 @@ public class RoomHandler extends TextWebSocketHandler{
 		for(WebSocketSession ss : sessions) {
 			ss.sendMessage(new TextMessage(userMSG));
 		}				
+	}
+	
+	/* user ready status */
+	/* 유저가 레디한상태로 나갈때, 안한상태로 나갈때 별로 조건을 못줘서 처리를 빡세게 못하는 중 - 04.11*/
+	private void ready(TextMessage message) {
+		System.out.println(message.getPayload());
+		String pm = message.getPayload().split("/")[1];
+		int divnum = Integer.parseInt((String) message.getPayload().split("/")[2]);
+		switch(pm){
+			case "+":
+				readyStatus.put(divnum, readyStatus.getOrDefault(divnum, 0) +1);
+				readySum++;
+			break;
+//			case "-":
+//				readyStatus.put(divnum, readyStatus.getOrDefault(divnum, 0) -1);
+//				readySum--;
+//			break;
+		}		
+		return;
+	}
+	
+	private void start() throws Exception {
+		for(WebSocketSession ws : sessions) {
+			ws.sendMessage(new TextMessage("gamestart"));
+		}
 	}
 }

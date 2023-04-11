@@ -86,6 +86,10 @@ body{
 	height : 5vh;
 }
 
+.mid_Con .ready_btn.done {
+	background-color : var(--sub-text-color);
+}
+
 .mid_Con .chat{
 	width : 100%;
 	height : 80%;

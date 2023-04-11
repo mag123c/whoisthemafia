@@ -40,6 +40,7 @@ public class UserController {
 		else {
 			ss.setAttribute("id", dto.getId());
 			ss.setAttribute("user_idx", idx);
+			ss.setAttribute("nickname", userService.getuserinfo(dto.getId()).getNickname());
 			ss.setMaxInactiveInterval(60*180);
 			mv.setViewName("redirect:/lobby");
 		}

@@ -34,7 +34,6 @@ function connectWs(){
 
 	ws.onmessage = function(message) {
 		let data = message.data;
-		console.log(data);
 		/* user out -> view update func */
 		if(data.includes("userout")){
 			userout(data.split("/")[1]);
@@ -47,6 +46,11 @@ function connectWs(){
 		}
 		else if(data.includes("joinMSG")){
 			userMSG(data.split("/")[1]);
+			return;
+		}
+		else if(data.includes("gamestart")){
+			gamestart();
+			return;
 		}
 		else {
 			let nickname = data.split("/")[0];
@@ -56,6 +60,8 @@ function connectWs(){
 	};
 
 	ws.onclose = function() {
+		let divid = find_id()
+		ws.send("readyStatus/-/"+divid);
 		console.log("게임close");
 	};
 
@@ -109,3 +115,23 @@ function userMSG(MSG){
 	chatview.append(chatdiv);
 }
 /* userchat -> view update func end */
+
+/* find_divid */
+function find_id(){
+	let pAll = $(main_Con).find('.user_nickname');
+	let userp;
+	for(var i=0; i<pAll.length; i++){
+		if(pAll[i].textContent == sessionnick.value){
+			userp = pAll[i];
+			break;
+		}
+	}
+	return userp.parentElement.parentElement.id;
+}
+/* find_divid end */
+
+/* game start func */
+function gamestart(){
+	
+}
+/* game start func end */

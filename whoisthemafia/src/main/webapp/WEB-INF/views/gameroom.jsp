@@ -11,6 +11,7 @@
 <!-- hidden info -->
 <input type="hidden" id="roomIdx" value="${room_idx}">
 <input type="hidden" value="${sessionScope.id}" id="sessionid">
+<input type="hidden" value="${sessionScope.nickname}" id="sessionnick">
 <!-- hidden info end -->
 	
 <div class="main_Con">
