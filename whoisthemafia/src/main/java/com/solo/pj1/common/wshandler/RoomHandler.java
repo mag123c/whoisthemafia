@@ -60,6 +60,7 @@ public class RoomHandler extends TextWebSocketHandler{
         int idx = Integer.parseInt(session.getAttributes().get("room_idx").toString());        
         idxList.add(idx);
         sessions.add(session);
+        readySum++;
 //        isinDiv.put((String) session.getAttributes().get("id"), remainDiv.poll());
 	}
 	
@@ -77,7 +78,7 @@ public class RoomHandler extends TextWebSocketHandler{
 		}
 		
 		if(message.getPayload().contains("start")) {
-			start();
+			start(session, message.getPayload().split("/")[1]);
 			return;
 		}
 
@@ -95,7 +96,7 @@ public class RoomHandler extends TextWebSocketHandler{
 					LobbyHandler.sendMsg("update/" + idx + "/+");
 					tmp++;
 				}
-				//1-1. 처음 입장한애				
+				//1-1. 처음 입장한애
 				if(single.getAttributes().get("id").equals(id)) {
 					/* 입장 시  게임방의 정보 받아오기 */
 					for(GameRoomDTO gr : grDTO) {					
@@ -149,6 +150,7 @@ public class RoomHandler extends TextWebSocketHandler{
         int idx = Integer.parseInt(session.getAttributes().get("room_idx").toString());
         idxList.remove((Integer) idx);        
         LobbyHandler.sendMsg("update/" + idx + "/-");
+        readySum--;
         
 		//방에 한명이라도 사용자가 있을 경우 room 내부소켓 정보 갱신
 		if(sessions.size() >= 1) {
@@ -173,8 +175,6 @@ public class RoomHandler extends TextWebSocketHandler{
 		int divnum = Integer.parseInt((String) message.getPayload().split("/")[2]);
 		switch(pm){
 			case "+":
-				readyStatus.put(divnum, readyStatus.getOrDefault(divnum, 0) +1);
-				readySum++;
 			break;
 //			case "-":
 //				readyStatus.put(divnum, readyStatus.getOrDefault(divnum, 0) -1);
@@ -184,9 +184,21 @@ public class RoomHandler extends TextWebSocketHandler{
 		return;
 	}
 	
-	private void start() throws Exception {
+	private void start(WebSocketSession session, String roomidx) throws Exception {
+		if(readySum==8) {
+			int idx = Integer.parseInt(roomidx);
+			roomService.updateRole(idx);
+		}
 		for(WebSocketSession ws : sessions) {
-			ws.sendMessage(new TextMessage("gamestart"));
+			if(readySum==8) {
+				ws.sendMessage(new TextMessage("gamestatus/start"));
+			}
+			else {
+				if(ws.getAttributes().get("id").equals(session.getAttributes().get("id"))) {
+					ws.sendMessage(new TextMessage("gamestatus/fail"));
+					return;
+				}				
+			}
 		}
 	}
 }

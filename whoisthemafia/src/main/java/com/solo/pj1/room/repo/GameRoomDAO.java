@@ -28,8 +28,12 @@ public class GameRoomDAO {
 		ss.delete("gameroom.userout", grDTO);		
 	}
 
-	public void chatting(RoomChatDTO dto) {
-		ss.insert("roomchat.chatting", dto);
+	public void updateRole(Map<String, Integer> mafia) {
+		ss.update("gameroom.updaterole", mafia);
+	}
+
+	public int getUserIdx(Map<String, Integer> map) {
+		return ss.selectOne("gameroom.getuseridx", map);
 	}
 	
 }

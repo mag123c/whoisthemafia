@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
 <input type="hidden" id="roomIdx" value="${room_idx}">
 <input type="hidden" value="${sessionScope.id}" id="sessionid">
 <input type="hidden" value="${sessionScope.nickname}" id="sessionnick">
+<input type="hidden" value="${roominfo.rhost}" id="roomhost">
 <!-- hidden info end -->
 	
 <div class="main_Con">
@@ -56,12 +58,17 @@
 	<!-- left(User) end -->
 	<!-- mid(chat) -->
 	<div class="mid_Con">
-		<h1 class="rname">방제목 나중에 여기 나오게하기</h1>
-		<button class="ready_btn">Ready</button>
+		<div class="hidden_view"><span class="hidden_text"></span></div>	
+		<h1 class="rname">${roominfo.rname}</h1>
+		<button class="ready_btn">
+			<c:choose>
+			<c:when test="${sessionScope.id == roominfo.rhost}">Start</c:when>
+			<c:otherwise>Ready</c:otherwise>
+			</c:choose>
+		</button>
 		<button class="exit_btn">Exit</button>
 		<div class="chat">
 			<div class="chat_view">
-				<!-- 채팅영역 -->
 			</div>
 			<div class="chat_input">
 				<input type="text" id="chatinput" spellcheck="false" placeholder="메세지 입력">

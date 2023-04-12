@@ -21,4 +21,18 @@
 		   and user_idx=#{user_idx}
 	</delete>
 	
+	<update id="updaterole" parameterType="HashMap">
+		update gameroom
+		   set role_idx="M"
+		 where room_idx=#{idx}
+		   and user_idx=#{mafia_idx}
+	</update>
+	
+	<select id="getuseridx" parameterType="HashMap" resultType="int">
+		select user_idx
+		  from gameroom
+		 where room_idx=#{idx}
+		 limit #{mafia_idx}, 1
+	</select>
+	
 </mapper>

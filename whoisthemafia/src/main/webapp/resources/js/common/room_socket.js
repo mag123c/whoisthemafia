@@ -48,8 +48,8 @@ function connectWs(){
 			userMSG(data.split("/")[1]);
 			return;
 		}
-		else if(data.includes("gamestart")){
-			gamestart();
+		else if(data.includes("gamestatus")){
+			gamestatus(data.split("/")[1]);
 			return;
 		}
 		else {
@@ -109,10 +109,12 @@ function userMSG(MSG){
 	let chatdiv = document.createElement('div');	
 	let span = document.createElement('span');
 	span.textContent = MSG.split(" : ")[0];
+	span.style.wordBreak = "normal";
 	chatdiv.className = 'chating_div';
 	chatdiv.append(span);
 	chatdiv.append(MSG.split(" : ")[1]);	
 	chatview.append(chatdiv);
+	chatview.scrollTop = chatview.scrollHeight;
 }
 /* userchat -> view update func end */
 
@@ -130,8 +132,11 @@ function find_id(){
 }
 /* find_divid end */
 
-/* game start func */
-function gamestart(){
-	
+/* game start or fail func */
+function gamestatus(statusMSG){
+	if(statusMSG=="start") {
+		gamestart();
+	}
+	else alert("게임 시작은 8명일때 가능");
 }
-/* game start func end */
+/* game start or fail func end */

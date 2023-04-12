@@ -25,4 +25,6 @@ public interface RoomService {
 	void delroom(int idx);
 
 	String chatting(RoomChatDTO dto);
+
+	void updateRole(int idx);
 }

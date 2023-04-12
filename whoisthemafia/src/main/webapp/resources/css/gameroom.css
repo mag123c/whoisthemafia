@@ -80,7 +80,7 @@ body{
 	background-color: var(--btn_hover_bg);	
 }
 
-.mid_Con .ready_btn, .exit_btn{
+.mid_Con .ready_btn, .exit_btn, .start_btn{
 	margin : 3%;
 	width : 35%;
 	height : 5vh;
@@ -111,6 +111,12 @@ body{
 	display : block;
 	color : var(--sub-text-color);
 	font-weight : bold;
+}
+
+.mid_Con .hidden_view{
+	color : var(--error-text-color);
+	font-size : 3rem;
+	z-index : 1000;
 }
 
 .mid_Con .chat .chat_input{

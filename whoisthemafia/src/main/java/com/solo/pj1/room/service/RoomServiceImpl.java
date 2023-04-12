@@ -1,6 +1,11 @@
 package com.solo.pj1.room.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -101,7 +106,28 @@ public class RoomServiceImpl implements RoomService {
 	public String chatting(RoomChatDTO dto) {
 		UserDTO udto = userDAO.getuserinfo(dto.getUser_id());
 		dto.setUser_idx(udto.getIdx());
-		grDAO.chatting(dto);
+		rcDAO.chatting(dto);
 		return "userMSG/"+udto.getNickname() + " : " + dto.getMsg();
 	}
+
+	@Transactional
+	@Override
+	public void updateRole(int idx) {
+    	Set<Integer> set = new HashSet<>();
+    	while(set.size() <= 1) {
+    		Double d = Math.random() * 8 + 1;
+    		set.add(d.intValue());
+    	}
+    	List<Integer> mafiaNum = new ArrayList<>(set);
+    	Map<String, Integer> mafia1 = new HashMap<>();
+    	Map<String, Integer> mafia2 = new HashMap<>();
+    	mafia1.put("idx", idx);
+    	mafia1.put("mafia_idx", mafiaNum.get(0)-1);
+    	mafia2.put("idx", idx);
+    	mafia2.put("mafia_idx", mafiaNum.get(1)-1);
+    	mafia1.put("mafia_idx", grDAO.getUserIdx(mafia1));
+    	mafia2.put("mafia_idx", grDAO.getUserIdx(mafia2));
+    	grDAO.updateRole(mafia1);
+    	grDAO.updateRole(mafia2);
+    }
 }

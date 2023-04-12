@@ -37,8 +37,8 @@ public class RoomController {
 	
 	@RequestMapping(value="/rooms/{idx}", method=RequestMethod.GET)
 	public ModelAndView viewRoom(HttpSession ss, @PathVariable int idx) {
-		ss.setAttribute("room_idx", idx);
-		ModelAndView mv = new ModelAndView("gameroom");
+		ss.setAttribute("room_idx", idx);		
+		ModelAndView mv = new ModelAndView("gameroom", "roominfo", roomService.getRoomInfo(idx));
 		return mv;
 	}
 	

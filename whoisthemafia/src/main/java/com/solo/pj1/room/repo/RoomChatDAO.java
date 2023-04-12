@@ -16,6 +16,10 @@ public class RoomChatDAO {
 	
 	public List<RoomChatDTO> getinfo(int idx) {
 		return ss.selectList("roomchat.getinfo", idx);
-	}	
+	}
+
+	public void chatting(RoomChatDTO dto) {
+		ss.insert("roomchat.chatting", dto);
+	}
 	
 }
